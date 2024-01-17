@@ -56,7 +56,7 @@ function Chip() {
         <ul className="flex items-center gap-3 flex-wrap">
           {tags.map((item, index) => {
             return (
-              <li className="bg-gray-400 rounded-lg w-fit px-5 h-[50px] flex items-center gap-2">
+              <li className="bg-gray-400 rounded-lg w-fit px-5 h-[50px] flex items-center gap-2" key={index}>
                 <span>{item}</span>
                 <span
                   onClick={() => removeItem(index)}
@@ -84,9 +84,7 @@ function Chip() {
         {search &&
           data.map((item,index) => {
             if (
-              item
-                .toLocaleLowerCase()
-                .includes(!search ? "" : search.toLocaleLowerCase())
+              item && item.toLocaleLowerCase().includes(!search ? "":search.toLocaleLowerCase())
             ) {
               return (
                 <button
