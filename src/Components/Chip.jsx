@@ -21,7 +21,7 @@ function Chip() {
   // Handles key events for adding and removing tags
   const handleSetNameOnEnter = (e) => {
     // Adds a new tag when Enter is pressed
-    if (e.key === "Enter") {
+    if (search && e.key === "Enter") {
       setTags([...tags, search]);
       setSearch(""); // Clears the input
       
