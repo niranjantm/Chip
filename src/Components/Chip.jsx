@@ -53,7 +53,7 @@ function Chip() {
   return (
     <div className="flex flex-col justify-center items-center p-10">
       {/* -------------------------------------Input and tags------------------------------------------------ */}
-      <div onClick={e=>focusRef.current.focus()}className="border border-gray-400 w-[600px] min-h-[100px] mt-5 flex gap-3 p-5 flex-wrap rounded-lg">
+      <div onClick={e=>focusRef.current.focus()}className="border border-gray-400 w-[600px] h-fit mt-5 flex gap-3 p-5 flex-wrap rounded-lg shadow-lg max-md:w-[300px]">
         <ul className="flex items-center gap-3 flex-wrap">
           {tags.map((item, index) => {
             return (
