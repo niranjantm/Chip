@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import namesArray from "../assets/Data"  // initial list of names
 
 function Chip() {
@@ -7,6 +7,7 @@ function Chip() {
   const [tags, setTags] = useState([]); // State for managing selected tags
   const [data, setData] = useState(namesArray); // State for the initial list of names
   const [search, setSearch] = useState(""); // State for the current input value
+  const focusRef = useRef();
 
   // Removes a tag from the selected tags and adds it back to the suggestions
   const removeItem = (i) => {
@@ -52,7 +53,7 @@ function Chip() {
   return (
     <div className="flex flex-col justify-center items-center p-10">
       {/* -------------------------------------Input and tags------------------------------------------------ */}
-      <div className="border border-gray-400 w-[600px] min-h-[50px] mt-5 flex gap-3 p-5 flex-wrap rounded-lg">
+      <div onClick={e=>focusRef.current.focus()}className="border border-gray-400 w-[600px] min-h-[100px] mt-5 flex gap-3 p-5 flex-wrap rounded-lg">
         <ul className="flex items-center gap-3 flex-wrap">
           {tags.map((item, index) => {
             return (
@@ -75,6 +76,7 @@ function Chip() {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleSetNameOnEnter}
           className="outline-none"
+          ref={focusRef}
         />
       </div>
 
