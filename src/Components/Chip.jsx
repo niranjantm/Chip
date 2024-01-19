@@ -34,9 +34,11 @@ function Chip() {
       let tag = tags.pop();
       if(tags.length===0){
         setClicked(false)
-      }
-      setData([...data, tag]);
+      }else{
+        setData([...data, tag]);
       setTags([...tags]);
+      }
+      
     }
   };
 
@@ -88,7 +90,7 @@ function Chip() {
 
       {/* -------------------------------DropDown---------------------------------------------------------------------- */}
 
-      <div className="flex flex-wrap p-3  shadow-lg rounded-lg overflow-y-scroll scrollbar-hide gap-2 max-h-[200px] max-w-[300px] mt-5">
+      <div className={`flex flex-wrap p-3 rounded-lg ${click?"border border-gray-300":""} overflow-y-scroll scrollbar-hide gap-2 max-h-[200px] max-w-[300px] mt-5`}>
         {search &&
           data.map((item,index) => {
             if (
